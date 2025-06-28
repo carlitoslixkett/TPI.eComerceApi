@@ -1,5 +1,8 @@
 
 namespace Dsw2025Tpi.Api;
+using Dsw2025Tpi.Data;
+using Microsoft.EntityFrameworkCore;
+
 
 public class Program
 {
@@ -14,6 +17,9 @@ public class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
         builder.Services.AddHealthChecks();
+
+        builder.Services.AddDbContext<Dsw2025TpiContext>(options =>
+        options.UseInMemoryDatabase("BaseTienda"));
 
         var app = builder.Build();
 
